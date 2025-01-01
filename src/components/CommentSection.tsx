@@ -9,15 +9,15 @@ function CommentSection() {
     const [addComment, setAddComment] = useState("")
     const [addAuthorName, setAddAuthorName] = useState("")
     const [showExtra, setShowExtra] = useState(true)
-    const [comments, setComments] = useState<IComment[]>(
+    const [comments, setComments] = useState<IComment[]|[]>(
         () => {
-            const getItems = localStorage.getItem("comment");
+            let getItems = localStorage.getItem("comment")
             if (getItems) {
-                return JSON.parse(getItems);
+                return JSON.parse(getItems)
             } else {
                 return []
             }
-            return []
+            
         })
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
