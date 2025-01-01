@@ -30,7 +30,7 @@ async function DynamicBlog({ params: { id } }: { params: { id: string } }) {
                 </h1>
                 {/* blog image */}
                 <Image
-                    src={`${urlFor(blog[0].image)}`}
+                    src={urlFor(blog[0].image).url()}
                     alt='blog image'
                     width={500}
                     height={500}

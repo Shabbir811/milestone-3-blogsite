@@ -11,7 +11,7 @@ const BlogCard = ({ blog }: { blog: Iblog }) => {
         <section className='flex flex-col justify-between h-[480px] rounded bg-white/90 hover:scale-105 hover:bg-orange-200 '>
             <div className='relative max-h-72 flex-1 '>
                 <Image
-                    src={`${urlFor(blog.image)}`}
+                    src={urlFor(blog.image).url()}
                     alt='blog image'
                     fill
                     className='object-cover rounded-t'

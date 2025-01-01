@@ -7,7 +7,7 @@ function AuthorSection({blog}:{blog:IblogDetails[]}) {
     return (
         <div className='px-2 sm:px-8 md:px-12 flex gap-4 sm:gap-6 items-center  flex-col sm:flex-row justify-start shadow-orange-600 shadow-md '>
             <Image
-                src={`${urlFor(blog[0].author.authorImage)}`}
+                src={urlFor(blog[0].author.authorImage).url()}
                 alt='author image'
                 width={200}
                 height={200}
