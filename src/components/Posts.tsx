@@ -17,7 +17,7 @@ async function Posts({title}:{title:string}) {
     // const post: Iblog[] = await client.fetch(query)
 
     const url = await fetch("https://milestone-3-blogsite.vercel.app/api/post",{
-        cache:"no-store"
+        next:{revalidate: 5000}
     })
 
     const post = await url.json()
