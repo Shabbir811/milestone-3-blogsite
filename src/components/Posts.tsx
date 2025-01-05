@@ -7,7 +7,6 @@ import ShowMoreBtn from "./ShowMoreBtn";
 
 
 
-export const revalidate = 10;
 
 
 async function Posts({title}:{title:string}) {
