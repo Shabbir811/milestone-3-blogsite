@@ -9,7 +9,7 @@ function CommentSection() {
     const [addComment, setAddComment] = useState("")
     const [addAuthorName, setAddAuthorName] = useState("")
     const [showExtra, setShowExtra] = useState(true)
-    const [comments, setComments] = useState<IComment[]|[]>(
+    const [comments, setComments] = useState<IComment[] | []>(
         () => {
             const getItems = localStorage.getItem("comment")
             if (getItems) {
@@ -17,7 +17,7 @@ function CommentSection() {
             } else {
                 return []
             }
-            
+
         })
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -28,28 +28,28 @@ function CommentSection() {
             {
                 authorName: addAuthorName,
                 commentContent: addComment,
-                showMore:showExtra
+                showMore: showExtra
 
             }
             ])
             setAddComment("")
             setAddAuthorName("")
-            
+
         }
     }
 
-    const hadleShowContent = (id:string)=>{
-        if(comments.filter(
-            (comment:IComment)=>(
+    const hadleShowContent = (id: string) => {
+        if (comments.filter(
+            (comment: IComment) => (
                 comment.commentContent === id
             )
-        )){
+        )) {
 
             setShowExtra(prev => !prev)
         }
     }
 
-    localStorage.setItem("comment",JSON.stringify(comments))
+    localStorage.setItem("comment", JSON.stringify(comments))
 
     return (
         <div className="flex max-w-2xl flex-col  shadow-orange-500 shadow-md rounded-md p-5 mx-10 gap-5">
@@ -66,7 +66,7 @@ function CommentSection() {
                         className=" rounded-lg h-16  text-orange-500  px-5 py-2 bg-[#f2f2f2]"
                     />
                     <textarea
-                        
+
                         rows={1}
                         required
                         value={addComment}
@@ -106,17 +106,20 @@ function CommentSection() {
                                                     comment.commentContent
                                                 }
                                             </p>
-                                            <button
-                                                onClick={ ()=> hadleShowContent(comment.commentContent)}
-                                                className="text-orange-500 hover:text-orange-400 ">
-                                                {
-                                                    showExtra ?
-                                                        <span>Read More &gt;</span>
-                                                        :
-                                                        <span>Less Show</span>
-                                                }
+                                            { comment.commentContent.length > 200 &&
+                                                <button
+                                                    onClick={() => hadleShowContent(comment.commentContent)}
+                                                    className="text-orange-500 hover:text-orange-400 ">
+                                                    {
+                                                        showExtra ?
+                                                            <span>Read More &gt;</span>
+                                                            :
+                                                            <span>Less Show</span>
+                                                    }
 
-                                            </button>
+                                                </button>
+                                            }
+
                                         </div>
                                     )
                                 )

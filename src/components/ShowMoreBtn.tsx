@@ -40,6 +40,7 @@ function ShowMoreBtn({ post }: { post: Iblog[] }) {
 
             </div>
             <div>
+                { post.length > 3 && 
                 <button
                     className="h-12 w-40 rounded-lg text-white bg-orange-500 uppercase font-semibold hover:scale-105 shadow-md"
                     onClick={() => setShowMore(prev => !prev)}
@@ -52,6 +53,8 @@ function ShowMoreBtn({ post }: { post: Iblog[] }) {
                             'show more'
                     }
                 </button>
+            }
+
             </div>
         </div>
     )

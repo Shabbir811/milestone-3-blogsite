@@ -1,21 +1,27 @@
 
-import { client } from "@/sanity/lib/client";
-import { Iblog } from "@/types";
+// import { client } from "@/sanity/lib/client";
+// import { Iblog } from "@/types";
 import ShowMoreBtn from "./ShowMoreBtn";
 
 
 
 
 
-export const revalidate = 10;
+// export const revalidate = 10;
 
 
 async function Posts({title}:{title:string}) {
-    const query = `*[_type == "blog"] | order(_createdAt asc){
-        description,image,name,_id
-        }`;
+    // const query = `*[_type == "blog"] | order(_createdAt asc){
+    //     description,image,name,_id
+    //     }`;
 
-    const post: Iblog[] = await client.fetch(query)
+    // const post: Iblog[] = await client.fetch(query)
+
+    const url = await fetch("http://localhost:3000/api/post",{
+        cache:"no-store"
+    })
+
+    const post = await url.json()
 
     return (
 
