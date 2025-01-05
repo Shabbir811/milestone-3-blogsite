@@ -7,7 +7,7 @@ import ShowMoreBtn from "./ShowMoreBtn";
 
 
 
-// export const revalidate = 10;
+export const revalidate = 10;
 
 
 async function Posts({title}:{title:string}) {
@@ -17,7 +17,7 @@ async function Posts({title}:{title:string}) {
 
     // const post: Iblog[] = await client.fetch(query)
 
-    const url = await fetch("http://localhost:3000/api/post",{
+    const url = await fetch("https://milestone-3-blogsite.vercel.app/api/post",{
         cache:"no-store"
     })
 
