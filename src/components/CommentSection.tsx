@@ -11,7 +11,7 @@ function CommentSection() {
     const [showExtra, setShowExtra] = useState(true)
     const [comments, setComments] = useState<IComment[]|[]>(
         () => {
-            let getItems = localStorage.getItem("comment")
+            const getItems = localStorage.getItem("comment")
             if (getItems) {
                 return JSON.parse(getItems)
             } else {
