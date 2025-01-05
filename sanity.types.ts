@@ -70,7 +70,7 @@ export type Geopoint = {
 
 export type Slug = {
   _type: "slug";
-  current: string;
+  current?: string;
   source?: string;
 };
 
@@ -80,8 +80,8 @@ export type Blog = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  name: string;
-  description: string;
+  name?: string;
+  description?: string;
   image?: {
     asset?: {
       _ref: string;
@@ -93,7 +93,7 @@ export type Blog = {
     crop?: SanityImageCrop;
     _type: "image";
   };
-  content: Array<{
+  content?: Array<{
     children?: Array<{
       marks?: Array<string>;
       text?: string;
