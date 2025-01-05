@@ -9,7 +9,7 @@ import AuthorSection from '@/components/authorSection'
 import CommentSection from '@/components/CommentSection'
 
 
-export const revalidate = 10;
+// export const revalidate = 10;
 
 async function DynamicBlog({ params: { id } }: { params: { id: string } }) {
     const query = `
