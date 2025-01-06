@@ -6,7 +6,7 @@ import ShowMoreBtn from "./ShowMoreBtn";
 
 
 
-
+export const revalidate = 5
 
 
 async function Posts({title}:{title:string}) {
