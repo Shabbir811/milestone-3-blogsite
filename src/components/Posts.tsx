@@ -1,6 +1,6 @@
 
-// import { client } from "@/sanity/lib/client";
-// import { Iblog } from "@/types";
+import { client } from "@/sanity/lib/client";
+import { Iblog } from "@/types";
 import ShowMoreBtn from "./ShowMoreBtn";
 
 
@@ -10,17 +10,15 @@ import ShowMoreBtn from "./ShowMoreBtn";
 
 
 async function Posts({title}:{title:string}) {
-    // const query = `*[_type == "blog"] | order(_createdAt asc){
-    //     description,image,name,_id
-    //     }`;
+    const query = `*[_type == "blog"] | order(_createdAt asc){
+        description,image,name,_id
+        }`;
 
-    // const post: Iblog[] = await client.fetch(query)
+    const post: Iblog[] = await client.fetch(query)
 
-    const url = await fetch("https://milestone-3-blogsite.vercel.app/api/post",{
-        next:{revalidate: 5000}
-    })
+    
 
-    const post = await url.json()
+    
 
     return (
 
